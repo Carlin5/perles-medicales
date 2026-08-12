@@ -10,43 +10,43 @@ export type SeoPage = {
 export const seoPages = {
   home: {
     path: "/",
-    title: "Integrated Investment for Sustainable Community Growth",
+    title: "Perles Medicales | Healthcare Investment in Uganda",
     description:
       "Perles Medicales Limited integrates healthcare, livelihoods, and sustainable community growth across Uganda through medical-professional-led investment.",
   },
   about: {
     path: "/about",
-    title: "About Perles Medicales Limited",
+    title: "About the Company",
     description:
       "Learn how MUST medical alumni built Perles Medicales Limited from a 2003 peer network into a governed, multi-sector investment company reconnecting in 2021.",
   },
   business: {
     path: "/business",
-    title: "Business Pillars and Investment Sectors",
+    title: "Business Pillars",
     description:
       "Explore Perles Medicales Limited's healthcare, agro-industrial, real estate, and hospitality pillars, designed to create integrated value across Uganda.",
   },
   leadership: {
     path: "/leadership",
-    title: "Medical Professionals and Governance",
+    title: "Leadership & Governance",
     description:
       "Meet Perles Medicales Limited's medical leaders, guided by accountable governance, investment discipline, and a long-term community development vision.",
   },
   sustainability: {
     path: "/sustainability",
-    title: "Sustainability and Planned Community Development",
+    title: "Sustainability",
     description:
       "Discover Perles Medicales Limited's sustainability model: land procurement underway, renewable energy, agriculture, jobs, and community infrastructure.",
   },
   strategy: {
     path: "/strategy",
-    title: "Phased Investment Strategy and Growth Outlook",
+    title: "Investment Strategy",
     description:
       "See Perles Medicales Limited's phased investment strategy for healthcare, agriculture, infrastructure, hospitality, jobs, and sustainable community growth.",
   },
   contact: {
     path: "/contact",
-    title: "Contact Perles Medicales Limited",
+    title: "Contact the Company",
     description:
       "Contact Perles Medicales Limited in Kampala to discuss healthcare, agriculture, real estate, hospitality, and sustainable community investment opportunities.",
   },
