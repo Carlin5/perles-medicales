@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
  * - Whole screen lifts away after ~2.4s
  */
 export default function LoadingScreen() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     // Avoid showing again within the same session
@@ -23,6 +23,7 @@ export default function LoadingScreen() {
         return;
       }
     }
+    setVisible(true);
     const t = setTimeout(() => {
       setVisible(false);
       if (typeof window !== "undefined") {
