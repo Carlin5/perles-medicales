@@ -43,10 +43,12 @@ function Story() {
         <Reveal delay={0.1} className="md:col-span-7 space-y-5 text-lg text-navy/75 leading-relaxed">
           <p>
             The company&apos;s origins trace back to a cohort of medical doctors
-            (Class of 2003) who began by informally pooling resources to explore
-            collective investment opportunities. Over time, this collaboration
-            evolved into a structured and strategic investment group with a
-            shared long-term vision.
+            (Class of 2003) who graduated from MUST in 2003 and pursued separate
+            individual career paths across clinical practice, research, public
+            health, and industry. Around 2021, they reconnected to pool
+            resources and formalize collective investment, evolving into a
+            structured and strategic investment group with a shared long-term
+            vision.
           </p>
           <p>
             By 2022, Perles Medicales had formalized its governance framework,

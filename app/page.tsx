@@ -82,7 +82,7 @@ function Hero() {
             className="mt-6 max-w-xl text-base md:text-xl text-white/75 leading-relaxed"
           >
             Integrated investments in healthcare, livelihoods, and sustainable
-            community growth — anchored in Kampala, Uganda.
+            community growth across Uganda — led by medical professionals.
           </motion.p>
 
           <motion.div
