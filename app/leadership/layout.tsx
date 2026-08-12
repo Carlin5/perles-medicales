@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import LeadershipJsonLd from "@/components/LeadershipJsonLd";
 import { createPageMetadata, seoPages } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(seoPages.leadership);
@@ -15,6 +16,7 @@ export default function LeadershipLayout({
         name={seoPages.leadership.title}
         path={seoPages.leadership.path}
       />
+      <LeadershipJsonLd />
       {children}
     </>
   );

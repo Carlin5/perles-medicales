@@ -103,7 +103,7 @@ function TeamGrid() {
               <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
                   src={m.image}
-                  alt={m.name}
+                  alt={`${m.name}, ${m.role} at Perles Medicales Limited`}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
