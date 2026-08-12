@@ -7,7 +7,7 @@ import LoadingScreen from "@/components/LoadingScreen";
 import ScrollProgress from "@/components/ScrollProgress";
 import JsonLd from "@/components/JsonLd";
 import { company } from "@/lib/content";
-import { siteUrl } from "@/lib/site";
+import { googleSiteVerification, siteUrl } from "@/lib/site";
 import { seoPages } from "@/lib/seo";
 
 const inter = Inter({
@@ -67,13 +67,7 @@ export const metadata: Metadata = {
     description: seoPages.home.description,
     images: [`${siteUrl}/opengraph-image`],
   },
-  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
-    ? {
-        verification: {
-          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-        },
-      }
-    : {}),
+  verification: { google: googleSiteVerification },
 };
 
 export default function RootLayout({
