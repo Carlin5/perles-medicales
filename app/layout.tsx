@@ -29,17 +29,22 @@ export const metadata: Metadata = {
     default: seoPages.home.title,
     template: "%s | Perles Medicales Limited",
   },
-  description:
-    seoPages.home.description,
-  keywords: [
-    "Perles Medicales",
-    "Healthcare Investment",
-    "Uganda",
-    "Sustainable Development",
-    "Satellite Community",
-    "MUST Alumni",
-    "Agro-Industrial",
-  ],
+  description: seoPages.home.description,
+  keywords: [...seoPages.home.keywords],
+  applicationName: "Perles Medicales Limited",
+  category: "investment",
+  creator: "Perles Medicales Limited",
+  publisher: "Perles Medicales Limited",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   authors: [{ name: "Perles Medicales Limited" }],
   openGraph: {
     title: seoPages.home.title,

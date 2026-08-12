@@ -5,6 +5,7 @@ export type SeoPage = {
   path: string;
   title: string;
   description: string;
+  keywords: readonly string[];
 };
 
 export const seoPages = {
@@ -13,42 +14,86 @@ export const seoPages = {
     title: "Perles Medicales | Healthcare Investment in Uganda",
     description:
       "Perles Medicales Limited integrates healthcare, livelihoods, and sustainable community growth across Uganda through medical-professional-led investment.",
+    keywords: [
+      "Perles Medicales",
+      "healthcare investment Uganda",
+      "sustainable community growth",
+      "medical professionals Uganda",
+    ],
   },
   about: {
     path: "/about",
     title: "About the Company",
     description:
       "Learn how MUST medical alumni built Perles Medicales Limited from a 2003 peer network into a governed, multi-sector investment company reconnecting in 2021.",
+    keywords: [
+      "Perles Medicales history",
+      "MUST alumni doctors",
+      "medical professionals Uganda",
+      "collective investment",
+    ],
   },
   business: {
     path: "/business",
     title: "Business Pillars",
     description:
       "Explore Perles Medicales Limited's healthcare, agro-industrial, real estate, and hospitality pillars, designed to create integrated value across Uganda.",
+    keywords: [
+      "healthcare services Uganda",
+      "agro-industrial production Uganda",
+      "real estate community infrastructure",
+      "hospitality leisure services",
+    ],
   },
   leadership: {
     path: "/leadership",
     title: "Leadership & Governance",
     description:
       "Meet Perles Medicales Limited's medical leaders, guided by accountable governance, investment discipline, and a long-term community development vision.",
+    keywords: [
+      "medical professionals Uganda",
+      "corporate governance Uganda",
+      "Perles Medicales leadership",
+      "healthcare investment leadership",
+    ],
   },
   sustainability: {
     path: "/sustainability",
     title: "Sustainability",
     description:
       "Discover Perles Medicales Limited's sustainability model: land procurement underway, renewable energy, agriculture, jobs, and community infrastructure.",
+    keywords: [
+      "sustainability Uganda",
+      "planned land procurement",
+      "satellite community",
+      "renewable energy agriculture",
+      "community infrastructure",
+    ],
   },
   strategy: {
     path: "/strategy",
     title: "Investment Strategy",
     description:
       "See Perles Medicales Limited's phased investment strategy for healthcare, agriculture, infrastructure, hospitality, jobs, and sustainable community growth.",
+    keywords: [
+      "phased investment strategy Uganda",
+      "healthcare investment",
+      "agro-industrial production",
+      "community infrastructure",
+      "employment growth",
+    ],
   },
   contact: {
     path: "/contact",
     title: "Contact the Company",
     description:
       "Contact Perles Medicales Limited in Kampala to discuss healthcare, agriculture, real estate, hospitality, and sustainable community investment opportunities.",
+    keywords: [
+      "Perles Medicales contact",
+      "healthcare investment Uganda",
+      "sustainable community investment",
+      "Kampala investment company",
+    ],
   },
 } as const satisfies Record<string, SeoPage>;
 
@@ -57,6 +102,7 @@ export function createPageMetadata(page: SeoPage): Metadata {
   return {
     title: page.title,
     description: page.description,
+    keywords: [...page.keywords],
     alternates: { canonical: url },
     openGraph: {
       title: page.title,
