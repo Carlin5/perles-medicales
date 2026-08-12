@@ -5,6 +5,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import ScrollProgress from "@/components/ScrollProgress";
+import JsonLd from "@/components/JsonLd";
+import { company } from "@/lib/content";
+import { siteUrl } from "@/lib/site";
+import { seoPages } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,10 +23,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Perles Medicales Limited · Integrated Investments in Healthcare, Livelihoods, and Sustainable Community Growth",
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: siteUrl },
+  title: {
+    default: seoPages.home.title,
+    template: "%s | Perles Medicales Limited",
+  },
   description:
-    "A Uganda-based, healthcare-anchored investment platform integrating healthcare, agriculture, real estate, and hospitality to build sustainable communities.",
+    seoPages.home.description,
   keywords: [
     "Perles Medicales",
     "Healthcare Investment",
@@ -34,11 +42,33 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Perles Medicales Limited" }],
   openGraph: {
-    title: "Perles Medicales Limited",
-    description:
-      "Integrated Investments in Healthcare, Livelihoods, and Sustainable Community Growth — Kampala, Uganda",
+    title: seoPages.home.title,
+    description: seoPages.home.description,
+    url: siteUrl,
     type: "website",
+    siteName: "Perles Medicales Limited",
+    images: [
+      {
+        url: `${siteUrl}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Perles Medicales Limited — Integrating Health & Nature",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: seoPages.home.title,
+    description: seoPages.home.description,
+    images: [`${siteUrl}/opengraph-image`],
+  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({
@@ -49,6 +79,38 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="bg-cream-100 text-navy-700 antialiased">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": `${siteUrl}/#organization`,
+                name: company.short,
+                legalName: company.name,
+                url: siteUrl,
+                logo: `${siteUrl}/icon.svg`,
+                email: `mailto:${company.contact.email}`,
+                foundingDate: "2021",
+                address: {
+                  "@type": "PostalAddress",
+                  name: company.contact.headOffice,
+                  streetAddress: "Plot 1411, Lubowa, Entebbe Road",
+                  addressLocality: "Kampala",
+                  addressCountry: "UG",
+                },
+              },
+              {
+                "@type": "WebSite",
+                "@id": `${siteUrl}/#website`,
+                name: company.name,
+                url: siteUrl,
+                publisher: { "@id": `${siteUrl}/#organization` },
+                inLanguage: "en",
+              },
+            ],
+          }}
+        />
         <LoadingScreen />
         <ScrollProgress />
         <Navbar />
