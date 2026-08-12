@@ -117,9 +117,9 @@ function LandAllocation() {
     <section className="bg-cream-50 py-24">
       <div className="container-max grid gap-12 md:grid-cols-12 md:gap-16 items-center">
         <Reveal className="md:col-span-5">
-          <p className="eyebrow">Land Stewardship</p>
+          <p className="eyebrow">Planned Land Stewardship</p>
           <h2 className="display-serif mt-3 text-balance text-3xl md:text-5xl font-semibold leading-[1.05] text-navy">
-            100+ acres, transformed into a high-utility mixed-use system.
+            100+ acres targeted for a high-utility mixed-use system.
           </h2>
           <p className="mt-5 text-navy/70 leading-relaxed">
             Our &ldquo;Satellite Community&rdquo; model is designed to support
@@ -132,8 +132,8 @@ function LandAllocation() {
         <Reveal delay={0.1} className="md:col-span-7">
           <div className="card-soft p-8">
             <div className="flex items-baseline justify-between">
-              <p className="eyebrow">Allocation</p>
-              <p className="text-sm font-semibold text-navy">{total} acres</p>
+              <p className="eyebrow">Target Allocation</p>
+              <p className="text-sm font-semibold text-navy">{total} acres planned</p>
             </div>
             <div className="mt-6 space-y-6">
               {landAllocation.map((l, i) => {
@@ -144,7 +144,7 @@ function LandAllocation() {
                       <p className="text-sm font-semibold text-navy">
                         {l.name}
                       </p>
-                      <p className="text-sm text-navy/60">~{l.acres} acres</p>
+                      <p className="text-sm text-navy/60">~{l.acres} acres planned</p>
                     </div>
                     <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-navy/5">
                       <motion.div

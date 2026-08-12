@@ -21,12 +21,12 @@ export const timeline = [
   {
     year: "2003",
     title: "The Class of 2003",
-    body: "Medical graduates from Mbarara University of Science and Technology (MUST) begin informal peer collaboration and resource pooling.",
+    body: "A cohort of doctors graduates from Mbarara University of Science and Technology (MUST) and goes on to pursue individual careers across clinical practice, research, public health, and industry — while keeping the peer network alive.",
   },
   {
     year: "2021",
-    title: "Foundation",
-    body: "Company established with a formal shared investment mandate by a network of medical professionals.",
+    title: "Resource Pooling Begins",
+    body: "The classmates reconnect and begin pooling resources, establishing the company with a formal shared investment mandate.",
   },
   {
     year: "2022",
@@ -91,10 +91,10 @@ export const pillars = [
     name: "Real Estate & Community Infrastructure",
     badge: "Built Environment",
     summary:
-      "Long-term physical development of the satellite community model — phased delivery of housing, infrastructure, and essential utilities.",
+      "Planned long-term physical development of the satellite community model following land procurement — phased delivery of housing, infrastructure, and essential utilities.",
     activities: [
       "Planned residential and commercial developments",
-      "Land development and zoning for mixed-use infrastructure",
+      "Land procurement, development, and zoning for mixed-use infrastructure",
       "Gradual formation of an integrated settlement ecosystem",
     ],
   },
@@ -172,13 +172,13 @@ export const sustainability = [
 export const landStats = [
   {
     value: "100+",
-    label: "Acres Under Development",
-    sub: "High-utility mixed-use land system",
+    label: "Acres Targeted for Development",
+    sub: "Procurement in progress · planned mixed-use land system",
   },
   {
     value: "50",
     label: "Acres Managed Forest Target",
-    sub: "Within 7 years",
+    sub: "Within 7 years of land acquisition",
   },
   {
     value: "3K–10K",
@@ -237,8 +237,8 @@ export const competitive = [
   },
   {
     icon: "Triangle",
-    title: "Asset-Backed Long-Term Value Creation",
-    body: "Focus on land development, infrastructure, and integrated community systems positions the company for significant long-term capital appreciation.",
+    title: "Long-Term Land & Infrastructure Value Creation",
+    body: "Planned land procurement, development, infrastructure, and integrated community systems position the company for significant long-term capital appreciation.",
   },
   {
     icon: "Star",

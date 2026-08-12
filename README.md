@@ -29,7 +29,7 @@ A modern, multi-page corporate website built directly from the official Company 
 - `/about` — Story, founding timeline (2003 → Now), Vision / Mission / Values
 - `/business` — Four pillars in detail + competitive advantages
 - `/leadership` — Governance framework + leadership profiles
-- `/sustainability` — Sustainability pillars, land allocation, eco systems
+- `/sustainability` — Sustainability pillars, planned land allocation, eco systems
 - `/strategy` — 10-year phased outlook, jobs projection, value proposition
 - `/contact` — Contact info + interest form
 
