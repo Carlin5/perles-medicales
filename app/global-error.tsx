@@ -15,10 +15,10 @@ export default function GlobalError({
               Perles Medicales
             </p>
             <h1 className="mt-4 font-serif text-4xl font-semibold">
-              Une parenthèse inattendue.
+              A brief pause.
             </h1>
             <p className="mt-4 leading-relaxed text-white/65">
-              Un instant — notre page a besoin d&apos;un nouveau départ.
+              The page needs a fresh start. Please try again.
             </p>
             <button
               type="button"

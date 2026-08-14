@@ -70,7 +70,7 @@ export function PearlFallback() {
       <svg
         aria-hidden
         viewBox="0 0 520 520"
-        className="relative h-[min(78vw,34rem)] w-[min(78vw,34rem)] max-w-full"
+        className="relative h-[min(122vw,38rem)] w-[min(122vw,38rem)] max-w-none translate-x-[18%] drop-shadow-[0_0_24px_rgba(116,178,135,0.35)] md:translate-x-0"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -87,28 +87,35 @@ export function PearlFallback() {
             <stop offset="100%" stopColor="#2D6E3D" stopOpacity="0.2" />
           </linearGradient>
           <filter id="fallback-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="12" />
+            <feGaussianBlur stdDeviation="16" />
           </filter>
           <filter id="fallback-pearl-shadow" x="-50%" y="-50%" width="200%" height="200%">
             <feDropShadow
               dx="0"
-              dy="14"
-              stdDeviation="16"
+              dy="12"
+              stdDeviation="14"
               floodColor="#07101F"
-              floodOpacity="0.7"
+              floodOpacity="0.55"
             />
           </filter>
         </defs>
 
-        <circle cx="260" cy="260" r="168" stroke="#4F9663" strokeOpacity="0.3" />
+        <circle
+          cx="260"
+          cy="260"
+          r="168"
+          stroke="#74B287"
+          strokeOpacity="0.58"
+          strokeWidth="2"
+        />
         <circle
           cx="260"
           cy="260"
           r="204"
           stroke="url(#fallback-ring)"
-          strokeWidth="2"
-          strokeDasharray="2 11"
-          opacity="0.75"
+          strokeWidth="3"
+          strokeDasharray="3 10"
+          opacity="0.95"
         />
         <ellipse
           cx="260"
@@ -117,8 +124,8 @@ export function PearlFallback() {
           ry="116"
           transform="rotate(-24 260 260)"
           stroke="#74B287"
-          strokeOpacity="0.42"
-          strokeWidth="2"
+          strokeOpacity="0.7"
+          strokeWidth="3"
         />
         <ellipse
           cx="260"
@@ -126,32 +133,49 @@ export function PearlFallback() {
           rx="236"
           ry="116"
           transform="rotate(54 260 260)"
-          stroke="#2D6E3D"
-          strokeOpacity="0.5"
+          stroke="#4F9663"
+          strokeOpacity="0.78"
+          strokeWidth="2"
         />
         <circle
           cx="260"
           cy="260"
-          r="108"
-          fill="#DFF4E5"
-          opacity="0.2"
+          r="140"
+          fill="#74B287"
+          opacity="0.42"
           filter="url(#fallback-glow)"
         />
         <circle
           cx="260"
           cy="260"
-          r="88"
+          r="108"
           fill="url(#fallback-pearl)"
           filter="url(#fallback-pearl-shadow)"
         />
-        <circle cx="231" cy="230" r="24" fill="#FFFFFF" opacity="0.78" />
-        <circle cx="222" cy="220" r="8" fill="#FFFFFF" opacity="0.7" />
+        <circle
+          cx="260"
+          cy="260"
+          r="114"
+          stroke="#E8EFE9"
+          strokeOpacity="0.35"
+          strokeWidth="2"
+        />
+        <ellipse
+          cx="228"
+          cy="218"
+          rx="34"
+          ry="25"
+          transform="rotate(-28 228 218)"
+          fill="#FFFFFF"
+          opacity="0.72"
+        />
+        <circle cx="216" cy="204" r="10" fill="#FFFFFF" opacity="0.9" />
         <path
           d="M260 163v-34M260 391v-34M163 260h-34M391 260h-34"
           stroke="#E8EFE9"
           strokeLinecap="round"
-          strokeOpacity="0.6"
-          strokeWidth="2"
+          strokeOpacity="0.8"
+          strokeWidth="3"
         />
       </svg>
     </div>
@@ -173,7 +197,7 @@ function Pearl({ lowPower }: { lowPower: boolean }) {
   return (
     <Float speed={1.2} rotationIntensity={0.4} floatIntensity={0.8}>
       <mesh ref={meshRef} castShadow={!lowPower} receiveShadow={!lowPower}>
-        <sphereGeometry args={[1.25, lowPower ? 48 : 64, lowPower ? 48 : 64]} />
+        <sphereGeometry args={[1.25, lowPower ? 48 : 96, lowPower ? 48 : 96]} />
         <MeshDistortMaterial
           color="#E8EFE9"
           metalness={0.65}
@@ -193,12 +217,14 @@ function HaloRing({
   color = "#4F9663",
   speed = 0.2,
   axis = [0, 0, 1] as [number, number, number],
+  lowPower = false,
 }: {
   radius?: number;
   thickness?: number;
   color?: string;
   speed?: number;
   axis?: [number, number, number];
+  lowPower?: boolean;
 }) {
   const ref = useRef<THREE.Mesh>(null!);
   useFrame((_, delta) => {
@@ -209,7 +235,9 @@ function HaloRing({
   });
   return (
     <mesh ref={ref}>
-      <torusGeometry args={[radius, thickness, 16, 120]} />
+      <torusGeometry
+        args={[radius, thickness, lowPower ? 16 : 24, lowPower ? 120 : 200]}
+      />
       <meshStandardMaterial
         color={color}
         emissive={color}
@@ -268,7 +296,7 @@ function PearlCanvas({
   return (
     <Canvas
       camera={{ position: [0, 0, 5], fov: 45 }}
-      dpr={lowPower ? [1, 1.15] : [1, 1.35]}
+      dpr={lowPower ? [1, 1.15] : [1, 1.8]}
       className="!h-full !w-full"
       onCreated={({ gl }) => {
         gl.domElement.addEventListener("webglcontextlost", onContextLost, {
@@ -284,13 +312,20 @@ function PearlCanvas({
       <pointLight position={[-3, -2, -4]} intensity={0.6} color="#2D6E3D" />
       <Suspense fallback={null}>
         <Pearl lowPower={lowPower} />
-        <HaloRing radius={1.9} color="#4F9663" speed={0.25} axis={[0, 1, 0.2]} />
+        <HaloRing
+          radius={1.9}
+          color="#4F9663"
+          speed={0.25}
+          axis={[0, 1, 0.2]}
+          lowPower={lowPower}
+        />
         <HaloRing
           radius={2.3}
           thickness={0.006}
           color="#74B287"
           speed={0.18}
           axis={[1, 0.3, 0]}
+          lowPower={lowPower}
         />
         <HaloRing
           radius={2.8}
@@ -298,6 +333,7 @@ function PearlCanvas({
           color="#2D6E3D"
           speed={0.12}
           axis={[0.4, 0.7, 0]}
+          lowPower={lowPower}
         />
         {!lowPower && <OrbitDots />}
         {!lowPower && (
@@ -338,6 +374,7 @@ function PearlCanvas({
 export default function PearlScene() {
   const [mediaReady, setMediaReady] = useState(false);
   const [lowPower, setLowPower] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [webglAvailable, setWebglAvailable] = useState(false);
   const [contextLost, setContextLost] = useState(false);
 
@@ -345,7 +382,8 @@ export default function PearlScene() {
     const smallViewport = window.matchMedia("(max-width: 767px)");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updateMedia = () => {
-      setLowPower(smallViewport.matches || reducedMotion.matches);
+      setLowPower(smallViewport.matches);
+      setPrefersReducedMotion(reducedMotion.matches);
       setMediaReady(true);
     };
 
@@ -367,7 +405,7 @@ export default function PearlScene() {
     setContextLost(true);
   }, []);
 
-  if (!mediaReady || !webglAvailable || lowPower || contextLost) {
+  if (!mediaReady || !webglAvailable || prefersReducedMotion || contextLost) {
     return <PearlFallback />;
   }
 
